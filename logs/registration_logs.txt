@@ -2,3 +2,7 @@
 {"username":"test","email":"test@gmail.com"}
 New User just registered with username - new_user
 
+New User just registered with username - test1
+New User just registered with username - test2
+New User just registered with username - test3
+New User just registered with username - test4

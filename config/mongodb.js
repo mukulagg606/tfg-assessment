@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/tfg-assessment", {});
+mongoose.connect(process.env.MONGO_URI, {});
 
 const mongodb = mongoose.connection;
 mongodb.on('error', console.error.bind(console, 'MongoDB connection error:'));

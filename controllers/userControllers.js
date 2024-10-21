@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
+import { onUserRegister } from "../services/publisher.js";
 
 const register = async (req, res) => {
     const { username, email, password } = req.body;
@@ -9,7 +10,7 @@ const register = async (req, res) => {
 
     User.create(newUser, (err, result) => {
         if (err) return res.status(400).json({ message: 'Error registering user' });
-        
+        onUserRegister({ username, email });
         return res.status(200).json({ message: 'User registered successfully' });
     });
 };

@@ -3,10 +3,11 @@ import bodyParser from 'body-parser';
 import { config } from "dotenv";
 import sqldb from "./config/mySql.js";
 import mongodb from "./config/mongodb.js";
+import { consumeMessage } from './services/subscriber.js';
 import {userRouter} from "./routes/userRoutes.js";
 import {gameRouter} from "./routes/gameRoutes.js";
 config();
-
+consumeMessage('user_registration');
 const app = express();
 app.use(bodyParser.json());
 app.use('/user', userRouter);
